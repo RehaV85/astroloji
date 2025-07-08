@@ -1,8 +1,8 @@
 # _config.yml
 title: Astroloji Dünyam
 description: Haftalık burç yorumları ve astroloji makaleleri.
-baseurl: ""
-url: "https://www.astrologaslizor.com"
+baseurl: "/astroloji"
+url: "rehav85.github.io/astroloji/"
 
 markdown: kramdown
 permalink: /blog/:title/ # Blog yazılarınızın URL yapısı

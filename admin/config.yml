@@ -1,8 +1,8 @@
 backend:
   name: github # GitHub kullanıyorsanız github, GitLab için gitlab, Bitbucket için bitbucket
-  repo: your-github-username/your-repo-name # Kendi GitHub kullanıcı adınız ve depo adınızla değiştirin (örn. AsliZor/astro-blog)
+  repo: RehaV85/astroloji # Kendi GitHub kullanıcı adınız ve depo adınızla değiştirin (örn. AsliZor/astro-blog)
   branch: main # Deponuzdaki ana branch adı (genellikle main veya master)
-  auth_probe_url: https://your-domain.com/admin/index.html # Kendi özel alan adınız veya GitHub Pages URL'nizle değiştirin
+  auth_probe_url: https://rehav85.github.io/astroloji/admin/index.html # Kendi özel alan adınız veya GitHub Pages URL'nizle değiştirin
                                                           # Örn: https://astrologaslizor.com/admin/index.html
                                                           # Eğer özel alan adınız yoksa: https://your-github-username.github.io/your-repo-name/admin/index.html
 
