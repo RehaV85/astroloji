@@ -1,0 +1,26 @@
+backend:
+  name: github # GitHub kullanıyorsanız github, GitLab için gitlab, Bitbucket için bitbucket
+  repo: your-github-username/your-repo-name # Kendi GitHub kullanıcı adınız ve depo adınızla değiştirin (örn. AsliZor/astro-blog)
+  branch: main # Deponuzdaki ana branch adı (genellikle main veya master)
+  auth_probe_url: https://your-domain.com/admin/index.html # Kendi özel alan adınız veya GitHub Pages URL'nizle değiştirin
+                                                          # Örn: https://astrologaslizor.com/admin/index.html
+                                                          # Eğer özel alan adınız yoksa: https://your-github-username.github.io/your-repo-name/admin/index.html
+
+media_folder: "assets/img/uploads" # Yüklenen resimlerin kaydedileceği klasör (Jekyll projenizin kökünden itibaren yol)
+public_folder: "/assets/img/uploads" # Yüklenen resimlerin web'de gösterileceği yol
+
+collections:
+  - name: "posts" # Koleksiyon adı (internal)
+    label: "Blog Yazıları" # Yönetim panelinde görünen isim
+    folder: "_posts" # Markdown dosyalarının bulunduğu klasör (Jekyll projenizin kökünden itibaren yol)
+    create: true # Yeni yazı oluşturmaya izin ver
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Dosya adı formatı
+    fields: # Her bir blog yazısı için Front Matter alanları
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post1"} # post1, sizin özel layout adınız
+      - {label: "Başlık", name: "title", widget: "string", required: true}
+      - {label: "Tarih", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss +0300", required: true}
+      - {label: "Görsel (Öncelikli)", name: "image", widget: "image", required: false, default: "/assets/img/blog/default-post.webp"} # Görsel yolu
+      - {label: "Açıklama (Meta)", name: "description", widget: "string", required: false}
+      - {label: "Anahtar Kelimeler (Meta)", name: "keywords", widget: "string", required: false}
+      - {label: "Yazar", name: "author", widget: "string", required: false, default: "Aslı Zor"}
+      - {label: "Yazı İçeriği", name: "body", widget: "markdown", required: true} # Yazının ana içeriği

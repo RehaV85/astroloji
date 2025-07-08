@@ -1,0 +1,34 @@
+# _config.yml
+title: Astroloji Dünyam
+description: Haftalık burç yorumları ve astroloji makaleleri.
+baseurl: ""
+url: "https://www.astrologaslizor.com"
+
+markdown: kramdown
+permalink: /blog/:title/ # Blog yazılarınızın URL yapısı
+
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+twitter_username: astrologasli777 # Eğer varsa
+instagram_username: astrologasli777 # Yeni eklenen
+youtube_channel_url: https://www.youtube.com/channel/UCGzy2FRDFdkKmoFKGqHFyzg
+
+# _config.yml (mevcut içeriğinizin altına ekleyin)
+
+# Varsayılan değerler
+defaults:
+  - scope:
+      path: "" # Bütün dosyalar için varsayılanlar
+    values:
+      layout: default # Varsayılan layout olarak _layouts/default.html'i kullan
+
+  - scope:
+      path: "_posts" # _posts klasöründeki dosyalar için varsayılanlar
+      type: "posts" # collections:posts ile eşleşmeli
+    values:
+      layout: post # _layouts/post.html'i kullan
+      author: "Aslı Budak Zor" # Tüm blog yazıları için varsayılan yazar
+      author_image: "/assets/img/asli-budak-zor.webp" # Varsayılan yazar fotoğrafı

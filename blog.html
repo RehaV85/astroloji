@@ -1,0 +1,88 @@
+---
+layout: default
+title: Blog Yazıları
+permalink: /blog/ # Eğer blog sayfanızın URL'si /blog/ şeklinde olmasını istiyorsanız
+---
+
+<main class="main">
+
+  <div class="page-title dark-background">
+    <div class="container">
+      <h1>Blog</h1>
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="{{ '/' | relative_url }}">Anasayfa</a></li>
+          <li class="current">Blog</li>
+        </ol>
+      </nav>
+    </div>
+  </div><section id="blog-posts" class="blog-posts section">
+
+    <div class="container">
+      <div class="row gy-4">
+
+        {% for post in site.posts %}
+        <div class="col-lg-4">
+          <article>
+
+            <div class="post-img">
+              {% if post.image %} 
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="img-fluid">
+              {% else %} {# Yoksa varsayılan bir görsel kullanabilirsiniz #}
+              <img src="{{ '/assets/img/blog/default-blog-image.webp' | relative_url }}" alt="Default Blog Image" class="img-fluid">
+              {% endif %}
+            </div>
+
+            <p class="post-category">{{ post.category | default: "Genel" }}</p> 
+
+            <h2 class="title">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h2>
+
+            <div class="d-flex align-items-center">
+              
+              <div class="post-meta">
+                <p class="post-author">{{ post.author | default: site.author }}</p> 
+                <p class="post-date">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+                </p>
+              </div>
+            </div>
+
+          </article>
+        </div>{% endfor %}
+
+      </div>
+    </div>
+
+  </section>
+  {% comment %}
+  <section id="blog-pagination" class="blog-pagination section">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <ul>
+          {% if paginator.previous_page %}
+            <li><a href="{{ paginator.previous_page_path | relative_url }}"><i class="bi bi-chevron-left"></i></a></li>
+          {% else %}
+            <li><a href="#" class="disabled"><i class="bi bi-chevron-left"></i></a></li>
+          {% endif %}
+
+          {% for page_num in paginator.total_pages %}
+            {% if page_num == paginator.page %}
+              <li><a href="#" class="active">{{ page_num }}</a></li>
+            {% else %}
+              <li><a href="{{ site.paginate_path | relative_url | replace: ':num', page_num }}">{{ page_num }}</a></li>
+            {% endif %}
+          {% endfor %}
+
+          {% if paginator.next_page %}
+            <li><a href="{{ paginator.next_page_path | relative_url }}"><i class="bi bi-chevron-right"></i></a></li>
+          {% else %}
+            <li><a href="#" class="disabled"><i class="bi bi-chevron-right"></i></a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </section>{% endcomment %}
+
+</main>
